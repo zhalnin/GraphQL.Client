@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <GraphQL Remove="CourseByIdQuery.graphql" />
+    <GraphQL Remove="Queries\SearchQuery.graphql" />
+    <GraphQL Remove="schema.extensions.graphql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Queries\PaginagedCoursesQuery.graphql" />
+    <None Remove="Queries\SearchQuery.graphql" />
+    <None Remove="Subscriptions\CreateCourseSubscription.graphql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Queries\CourseByIdQuery.graphql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FirebaseAuthentication.net" Version="3.7.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+    <PackageReference Include="StrawberryShake.CodeGeneration.CSharp.Analyzers" Version="12.15.0" />
+    <PackageReference Include="StrawberryShake.Transport.Http" Version="12.15.0" />
+    <PackageReference Include="StrawberryShake.Transport.WebSockets" Version="12.15.0" />
+    <PackageReference Include="System.Reactive" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Generated\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <GraphQLConfig Include="Queries\CourseByIdQuery.graphql" />
+    <GraphQLConfig Include="Queries\CoursesQuery.graphql" />
+    <GraphQLConfig Include="Queries\PaginagedCoursesQuery.graphql" />
+    <GraphQLConfig Include="Queries\SearchQuery.graphql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Remove="Queries\PaginagedCoursesQuery.graphql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Remove="Queries\CoursesQuery.graphql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Remove="Queries\CourseByIdQuery.graphql" />
+  </ItemGroup>
+
+</Project>

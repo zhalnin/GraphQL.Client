@@ -1,0 +1,18 @@
+﻿Mutations - GRAPHQL CLIENT IN .NET w/ STRAWBERRY SHAKE #3
+https://youtu.be/n5mfbdeictU
+
+dotnet new tool-manifest
+dotnet tool install StrawberryShake.Tools --local
+dotnet graphql init http://localhost:5000/graphql - create schema.graphql и билдим проект
+dotnet graphql update - update graphql schema (schema.graphql) и билдим проект
+Если /generated/... не обновляется, то переносим файл в корень проекта и билдим, затем обратно переносим
+dotnet add package StrawberryShake.Transport.Http - for client http
+dotnet add package StrawberryShake.CodeGeneration.CSharp.Analyzers
+dotnet add package Microsoft.Extensions.DependencyInjection
+dotnet add package StrawberryShake.Transport.WebSockets - for subscriptions
+dotnet add package System.Reactive - linq observers
+
+#Persisted query
+<PropertyGroup>
+    <GraphQLPersistedQueryOutput Condition="'$(Configuration) == 'Release'">../persisted</GraphQLPersistedQueryOutput>
+</PropertyGroup>
